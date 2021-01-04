@@ -86,8 +86,12 @@ jobs:
     - name: Update feeds
       run: | 
         cd openwrt && ./scripts/feeds update -a
-        cd feeds/kenzo/
-        rm -rf /luci-app-passwall/
+        rm -rf feeds/kenzo/luci-app-passwall
+        rm -rf feeds/kenzo/luci-app-ssr-plus
+        rm -rf feeds/kenzo/luci-theme-opentopd
+        cd package/lean/
+        svn checkout https://github.com/sirpdboy/sirpdboy-package/trunk/luci-theme-opentopd
+        git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
