@@ -86,8 +86,8 @@ jobs:
     - name: Update feeds
       run: | 
         cd openwrt && ./scripts/feeds update -a
-        cd package/lean/
-        git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
+        cd feeds/kenzo/
+        rm -rf /luci-app-passwall/
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
